@@ -20,6 +20,15 @@ public class Vetor {
         this.totalDeAlunos++;
     }
 
+    public void adicionaLento(Aluno aluno) {
+        for (int i = 0; i < this.alunos.length; i++) {
+            if (this.alunos[i] == null) {
+                this.alunos[i] = aluno;
+                break;
+            }
+        }
+    }
+
     public void adiciona(int posicao, Aluno aluno) {
         if(!this.posicaoValida(posicao)) {
             throw new IllegalArgumentException("Posição inválida");
@@ -30,6 +39,7 @@ public class Vetor {
         }
 
         this.alunos[posicao] = aluno;
+        this.totalDeAlunos++;
     }
 
     public Aluno pega(int posicao) {
@@ -61,6 +71,21 @@ public class Vetor {
     public int tamanho() {
         return this.totalDeAlunos;
     }
+
+    public void garantaEspaco() {
+        if (this.totalDeAlunos == this.alunos.length) {
+            System.out.println("Atingiu a capacidade máxima. Aumentando o tamanho do vetor...");
+            Aluno[] novaArray = new Aluno[this.alunos.length * 2];
+            for (int i = 0; i < this.alunos.length; i++) {
+                novaArray[i] = this.alunos[i];
+            }
+            System.out.println("Tamanho atual do vetor: " + this.alunos.length);
+            System.out.println("Novo tamanho do vetor: " + novaArray.length);
+            this.alunos = novaArray;
+            System.out.println("Vetor aumentado com sucesso.");
+        }
+    }
+
 
     public String toString() {
         if (this.totalDeAlunos == 0) {
