@@ -9,7 +9,7 @@ public class TesteEstoura {
         int tamanhoInicial = vetor.tamanho();
 
         for (int i = 0; i < 100001; i++) {
-            vetor.garantaEspaco();
+            // vetor.garantaEspaco();
             Aluno aluno = new Aluno();
             vetor.adiciona(aluno);
         }

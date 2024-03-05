@@ -15,13 +15,14 @@ public class Teste {
             vetor.adiciona(aluno);
         }
 
-        System.out.println(vetor.tamanho());
+        System.out.println("Tamanho do vetor: " + vetor.tamanho());
 
         for (int i = 0; i < vetor.tamanho(); i++) {
             Aluno aluno = vetor.pega(i);
             list.add(aluno);
         }
 
-        System.out.println(list.size());
+        // Em ArrayLists não é necessário definir seu tamanho, pois sua capacidade é dinâmica, ou seja, aumenta automaticamente;
+        System.out.println("Tamanho do ArrayList: " + list.size());
     }
 }

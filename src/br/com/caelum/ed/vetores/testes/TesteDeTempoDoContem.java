@@ -10,7 +10,7 @@ public class TesteDeTempoDoContem {
 
         for (int i = 0; i < 30000; i++) {
             Aluno aluno = new Aluno();
-            vetor.adicionaLento(aluno);
+            vetor.adiciona(aluno);
             if (!vetor.contem(aluno)) {
                 System.out.println("Erro: aluno " + aluno + " não foi encontrado.");
             }

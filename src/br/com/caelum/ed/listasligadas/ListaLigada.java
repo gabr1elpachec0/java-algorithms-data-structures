@@ -24,6 +24,9 @@ public class ListaLigada {
         return atual;
     }
 
+    public Object pega(int posicao) {
+        return this.pegaCelula(posicao).getElemento();
+    }
 
     public void adiciona(Object elemento) {
         if (this.totalDeElementos == 0) {
@@ -35,6 +38,19 @@ public class ListaLigada {
             this.ultima = nova;
             this.totalDeElementos++;
         }
+    }
+
+    public void adicionaNoComeco(Object elemento) {
+        if (this.totalDeElementos == 0) {
+            Celula nova = new Celula(elemento);
+            this.primeira = nova;
+            this.ultima = nova;
+        } else {
+            Celula nova = new Celula(this.primeira, elemento);
+            this.primeira.setAnterior(nova);
+            this.primeira = nova;
+        }
+        this.totalDeElementos++;
     }
 
     public void adiciona(int posicao, Object elemento) {
@@ -51,10 +67,6 @@ public class ListaLigada {
             proxima.setAnterior(nova);
             this.totalDeElementos++;
         }
-    }
-
-    public Object pega(int posicao) {
-        return this.pegaCelula(posicao).getElemento();
     }
 
     public void remove(int posicao) {
@@ -76,35 +88,6 @@ public class ListaLigada {
 
             this.totalDeElementos--;
         }
-    }
-
-    public int tamanho() {
-        return this.totalDeElementos;
-    }
-
-    public boolean contem(Object elemento) {
-        Celula atual = this.primeira;
-
-        while (atual != null) {
-            if (atual.getElemento().equals(elemento)) {
-                return true;
-            }
-            atual = atual.getProxima();
-        }
-        return false;
-    }
-
-    public void adicionaNoComeco(Object elemento) {
-        if (this.totalDeElementos == 0) {
-            Celula nova = new Celula(elemento);
-            this.primeira = nova;
-            this.ultima = nova;
-        } else {
-            Celula nova = new Celula(this.primeira, elemento);
-            this.primeira.setAnterior(nova);
-            this.primeira = nova;
-        }
-        this.totalDeElementos++;
     }
 
     public void removeDoComeco() {
@@ -133,6 +116,22 @@ public class ListaLigada {
             this.ultima = penultima;
             this.totalDeElementos--;
         }
+    }
+
+    public int tamanho() {
+        return this.totalDeElementos;
+    }
+
+    public boolean contem(Object elemento) {
+        Celula atual = this.primeira;
+
+        while (atual != null) {
+            if (atual.getElemento().equals(elemento)) {
+                return true;
+            }
+            atual = atual.getProxima();
+        }
+        return false;
     }
 
     public String toString() {
