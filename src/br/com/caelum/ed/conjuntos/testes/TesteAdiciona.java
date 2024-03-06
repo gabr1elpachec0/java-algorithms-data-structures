@@ -16,6 +16,5 @@ public class TesteAdiciona {
         for (String palavra : palavras) {
             System.out.println(palavra);
         }
-
     }
 }

@@ -45,8 +45,6 @@ public class ConjuntoEspalhamento {
         }
     }
 
-
-
     private int tamanho = 0;
 
     public ConjuntoEspalhamento() {
