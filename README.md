@@ -1,5 +1,5 @@
 <h1>
-  Testes e Exercícios: Apostila de Algoritmos e Estruturas de Dados em Java
+  Apostila de Algoritmos e Estruturas de Dados em Java
 </h1>
 
 <p>
